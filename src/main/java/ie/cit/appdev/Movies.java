@@ -2,6 +2,7 @@ package ie.cit.appdev;
 
 public class Movies {
 	
+	private int id;
 	private String text;
 	private boolean done;
 	
@@ -20,7 +21,15 @@ public class Movies {
 	public void setDone(boolean done) {
 		this.done = done;
 	}
-	
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 }
 
 

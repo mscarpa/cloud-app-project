@@ -1,0 +1,1 @@
+create table COLL(id serial, text varchar, done boolean, primary key(id));

@@ -18,17 +18,25 @@
 	<br/>
 	<h2>Your list of films</h2>
 
+	<c:if test="${! empty param.text }">
+		<%
+			Movies movies = new Movies();
+			movies.setText(request.getParameter("text"));
+			repo.addMovies(movies);
+		%>
+	</c:if>
+
 	<c:forEach items="${movies}" var="mov" varStatus="row">
 		${mov.text}${mov.done}			
 		<form method="post">
-			<input name="_method" type="hidden" value="put"> <input
-				name="mId" type="hidden" value="${row.count}"> <input
-				type="submit" value="Update">
+			<input name="_method" type="hidden" value="put"> 
+			<input name="mId" type="hidden" value="${row.count}"> 
+			<input type="submit" value="Update">
 		</form>
 		<form method="post">
-			<input name="_method" type="hidden" value="delete"> <input
-				name="mId" type="hidden" value="${row.count}"> <input
-				type="submit" value="Delete">
+			<input name="_method" type="hidden" value="delete"> 
+			<input name="mId" type="hidden" value="${row.count}"> 
+			<input type="submit" value="Delete">
 		</form>
 		<br />
 	</c:forEach>
