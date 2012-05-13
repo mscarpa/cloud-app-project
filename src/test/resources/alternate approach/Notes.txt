@@ -1,0 +1,5 @@
+Note:
+the two file in test resources are to be used if you wish to implement the application without JDBC and with Memory repository
+and using movies servlet with substitute Collection controller
+
+File main.jsp is the old front end before i used list.jsp

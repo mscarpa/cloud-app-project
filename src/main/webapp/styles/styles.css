@@ -2,9 +2,120 @@
 /* R00091603 - Cloud Web Application Project */
 
 
-/* Body */
 body {
 font-size:100%;
 background-color:#c2cadf;
 }
-/* Body END */
+
+/* Page Container */
+#container {
+background-color:#ffffff;
+border:none;
+height:auto;
+margin:auto;
+width:982px;
+}
+
+/* Right Container */
+#right {
+background-color:#c2cadf;
+float:left;
+height:auto;
+width:782px;
+margin:auto; 
+}
+
+
+h1 {
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size:1.5em;
+color:#cc3232;
+}
+
+h2 {
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size:1.1em;
+color:#c08253; /*#c08253*/
+padding:0px 0px 10px;
+}
+
+h3 {
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size:0.9em;
+color:#3a5371;
+padding:0px;
+margin:0px;
+}
+
+p {
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size:0.8em;
+/*text-indent:7px;*/
+text-align:justify;
+padding:0px;
+}
+
+tr {
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size:0.9em;
+text-align:justify;
+}
+
+/* Header Container */
+.header {
+background-color:#5e6c79; 
+margin:45px 25px 0px;
+float:left;
+height:auto;
+width:752px;
+}
+.header h1 {
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:2.4em;
+text-align:center;
+color:#eeeeee;
+margin:4px 0px 0px;
+}
+
+/* Products Container */
+.products {
+background-color:#ffffff;
+border:1px solid #b9d33b; /*#bfcedb*/
+border-top:0px;
+float:left;
+height:auto;
+width:700px;
+padding:25px 25px 5px; /*top-right-left-bottom*/
+margin:0px 25px 45px;
+}
+.products table {
+background-color: #ffffff;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size:1.0em;
+margin:0px 0px 45px; /*top-right-left-bottom*/
+padding:10px;
+width:90%;
+border:none;
+border-collapse:collapse;
+text-align:center;
+}
+
+.products th {
+font-size:1.2em;
+font-weight:normal;
+text-align:center;
+color:#3a5371;
+padding:12px 15px;
+border-bottom:2px solid #6678b1;                        
+}
+
+.products td {
+border-bottom:1px solid #cccccc;
+color:#669;
+text-align:center;
+padding:8px 8px;
+}
+
+.products tbody tr:hover td {
+color:#009;
+}

@@ -17,24 +17,25 @@ public class JdbcCollectionRepository {
 	}
 
 	public void save(Movies movies) {
-		jdbcTemplate.update("insert into CALL (text, done) values(?,?)", movies.getText(), movies.isDone());
+		jdbcTemplate.update("insert into COLL (text, tipe, year, done) values(?,?,?,?)", 
+				movies.getText(), movies.getTipe(), movies.getYear(), movies.isDone());
 	}
 
 	public Movies get(int id) {
-		return jdbcTemplate.queryForObject("select id, text, done from CALL where id=?", new CollMapper(), id);
+		return jdbcTemplate.queryForObject("select id, text, tipe, year, done from COLL where id=?", new CollMapper(), id);
 	}
 
 	public List<Movies> getAll() {
-		return jdbcTemplate.query("select id, text, done from CALL", new CollMapper());
+		return jdbcTemplate.query("select id, text, tipe, year, done from COLL", new CollMapper());
 	}
 
 	public void delete(int id) {
-		jdbcTemplate.update("delete from CALL where id=?", id);
+		jdbcTemplate.update("delete from COLL where id=?", id);
 	}
 
 	public void update(Movies movies) {
-		jdbcTemplate.update("update CALL set text=?, done=? where id=?", 
-				movies.getText(), movies.isDone(), movies.getId());
+		jdbcTemplate.update("update COLL set text=?, tipe=?, year=?, done=? where id=?", 
+				movies.getText(), movies.getTipe(), movies.getYear(), movies.isDone(), movies.getId());
 	}
 
 }
@@ -45,9 +46,10 @@ class CollMapper implements RowMapper<Movies>{
 		Movies mov = new Movies();
 		mov.setId(res.getInt("id"));
 		mov.setText(res.getString("text"));
+		mov.setTipe(res.getString("tipe"));
+		mov.setYear(res.getInt("year"));
 		mov.setDone(res.getBoolean("done"));
 		return mov;
-		
 	}
 
 }	

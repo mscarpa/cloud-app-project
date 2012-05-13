@@ -1,1 +1,1 @@
-create table COLL(id serial, text varchar, done boolean, primary key(id));
+create table COLL(id serial, text varchar, tipe varchar, year int, done boolean, primary key(id));
