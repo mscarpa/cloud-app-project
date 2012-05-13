@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
 	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:security="http://www.springframework.org/schema/security"
 	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean id="repo" class="ie.cit.appdev.JdbcCollectionRepository">
@@ -21,6 +24,19 @@
 		init-method="start" destroy-method="stop">
 		<constructor-arg value="-web,-webPort,8082" />
 	</bean>
+	
+	
+	<security:http auto-config="true"> 
+		<security:intercept-url pattern="/*.html" access="ROLE_USER" />
+	</security:http>
+	
+	<security:authentication-manager>
+		<security:authentication-provider>
+			<security:password-encoder hash="md5" />
+			<security:user-service properties="classpath:user.properties" />
+		</security:authentication-provider>
+	</security:authentication-manager>
+	
 
 
 </beans>

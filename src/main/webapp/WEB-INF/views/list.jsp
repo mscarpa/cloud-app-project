@@ -1,7 +1,8 @@
 <%@ page import="ie.cit.appdev.Movies"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security"%>  
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -11,12 +12,14 @@
 <title>Movies Collection</title>
 </head>
 <body>
+
 <div id="container">
 <div id="right">
   <div class="header"><h1>MOVIES To WATCH</h1></div>	
   <br/>
   <div class="products">
-     
+    <a href="j_spring_security_logout">Logout: <security:authentication	property="principal.username" />
+	</a> 
 	<h2>Current List</h2>
 	
 	<table>
@@ -89,6 +92,7 @@
 	<h3>* All the fields are mandatory</h3>
 	<br/>
 	<br/>
+	
 	<br/>
 	<br/> 
     <p>- 2012 - R00091603 - Cloud Computing -</p>   
