@@ -1,0 +1,18 @@
+
+
+Hi
+
+The Main page is "list.jsp" in the views folder
+
+localhost:8080/collection/list.html
+
+login work but logout was giving some error code.
+
+I have implemented Security within the application
+For the Authentication 
+User:Mat
+P: Mat345
+User:Tony
+P:Tony78910
+
+regards

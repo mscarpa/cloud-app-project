@@ -16,7 +16,7 @@
 
 	<jdbc:embedded-database type="H2" id="dataSource" />
 
-	<jdbc:initialize-database data-source="dataSource">
+	<jdbc:initialize-database data-source="dataSource" ignore-failures="ALL">
 		<jdbc:script location="classpath:db-schema.sql" />
 	</jdbc:initialize-database>
 
