@@ -6,6 +6,7 @@ import java.util.List;
 import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 
 public class JdbcCollectionRepository {
@@ -17,8 +18,9 @@ public class JdbcCollectionRepository {
 	}
 
 	public void save(Movies movies) {
-		jdbcTemplate.update("insert into COLL (text, tipe, year, done) values(?,?,?,?)", 
-				movies.getText(), movies.getTipe(), movies.getYear(), movies.isDone());
+		jdbcTemplate.update("insert into COLL (text, tipe, year, done, users) values(?,?,?,?,?)", 
+				movies.getText(), movies.getTipe(), movies.getYear(), movies.isDone(), 
+				SecurityContextHolder.getContext().getAuthentication().getName());
 	}
 
 	public Movies get(int id) {
@@ -26,7 +28,8 @@ public class JdbcCollectionRepository {
 	}
 
 	public List<Movies> getAll() {
-		return jdbcTemplate.query("select id, text, tipe, year, done from COLL ", new CollMapper());
+		return jdbcTemplate.query("select id, text, tipe, year, done from COLL where users=? ", new CollMapper(),
+				SecurityContextHolder.getContext().getAuthentication().getName());
 	}
 
 	public void delete(int id) {

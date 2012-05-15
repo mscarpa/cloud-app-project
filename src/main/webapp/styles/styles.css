@@ -97,13 +97,14 @@ padding:10px;
 width:90%;
 border:none;
 border-collapse:collapse;
-text-align:center;
+text-align:left;
+text-decoration:none;
 }
 
 .products th {
 font-size:1.2em;
 font-weight:normal;
-text-align:center;
+text-align:left;
 color:#3a5371;
 padding:12px 15px;
 border-bottom:2px solid #6678b1;                        
@@ -111,11 +112,9 @@ border-bottom:2px solid #6678b1;
 
 .products td {
 border-bottom:1px solid #cccccc;
+text-decoration:none;
 color:#669;
-text-align:center;
+text-align:left;
 padding:8px 8px;
 }
 
-.products tbody tr:hover td {
-color:#009;
-}
